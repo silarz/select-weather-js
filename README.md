@@ -1,0 +1,1 @@
+A simple else if statement - from https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Select Weather JS</title>
+        <style>
+            body{
+                height: 100vh;
+                background-color: wheat;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .container{
+                height: auto;
+                width: auto;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 20px;
+                border: 2px solid black;
+                padding: 20px;
+            }
+            .select-title{
+                font-size: 40px;
+                margin: 20px auto;
+            }
+
+            select{
+                font-size: 30px;
+                width: 100%;
+                text-align: center;
+            }
+
+            option{
+                font-size: 30px;
+            }
+
+            .tips{
+                font-size: 25px;
+                width: 600px;
+                padding: 10px;
+                border-radius: 10px;text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container" id="container" style="color: black">
+            <label for="weather" class="select-title">Select the weather type today: </label>
+            <select id="weather">
+            <option value="">--Make a choice--</option>
+            <option value="sunny">Sunny</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowing">Snowing</option>
+            <option value="overcast">Overcast</option>
+            </select>
+            <p class="tips"></p>
+        </div>
+
+        <script>
+            const select = document.querySelector('select');
+            const para = document.querySelector('p');
+
+            select.addEventListener('change', setWeather);
+
+            function setWeather() {
+            const choice = select.value;
+
+                if (choice === 'sunny') {
+                    para.textContent = 'It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.';
+                    function sunnyBg(){
+                        let element = document.querySelector ('body');
+                        element.style.backgroundImage = "url('https://chata.org/wp-content/uploads/2015/12/avila_MAIN.jpg')";
+                    }
+                    sunnyBg();
+                } else if (choice === 'rainy') {
+                    para.textContent = 'Rain is falling outside; take a rain coat and an umbrella, and don\'t stay out for too long.';
+                    function rainyBg(){
+                        let element = document.querySelector ('body');
+                        element.style.backgroundImage = "url('https://pluviophile.net/wp-content/uploads/heavy-rain-wallpaper.jpg')";
+                    }
+                    rainyBg();
+                } else if (choice === 'snowing') {
+                    para.textContent = 'The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.';
+                    function snowingBg(){
+                        let element = document.querySelector ('body');
+                        element.style.backgroundImage = "url('https://thumbs.dreamstime.com/b/sunrise-snowy-forest-white-christmas-trees-46191875.jpg')";
+                    }
+                    snowingBg();
+                } else if (choice === 'overcast') {
+                    para.textContent = 'It isn\'t raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.';
+                    function cloudyBg(){
+                        let element = document.querySelector ('body');
+                        element.style.backgroundImage = "url('https://www.farmersalmanac.com/wp-content/uploads/2020/11/Clouds-Predict-Local-Weather-i861387936.jpg')";
+                    }
+                    cloudyBg();
+                } else {
+                    para.textContent = '';
+                }
+            }
+        </script>
+        
+    </body>
+</html>
